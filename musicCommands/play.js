@@ -52,8 +52,7 @@ async function displayQueue(message) {
      const embed = new EmbedBuilder()
       .setAuthor({
           name: 'Attention',
-          iconURL: 'https://cdn.discordapp.com/attachments/1223544847047065662/1224631171766292500/9596-wrong.gif?ex=661e31a7&is=660bbca7&hm=0176645a3d582d6b93c8447a02cd7b1e7923b316212336fdc0b23b96b5e8ab4b&',
-          url: 'https://discord.gg/FUEHs7RCqz'
+          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
         })
       .setDescription('**The Queue is currently empty consider adding songs.**')
       .setColor('#ff0000');
@@ -64,8 +63,7 @@ async function displayQueue(message) {
     .setColor('#2b71ec')
     .setAuthor({
       name: 'Queue',
-      iconURL: 'https://cdn.discordapp.com/attachments/1175488636033175602/1175488721001398333/queue.png?ex=656b6a2e&is=6558f52e&hm=7b4492b1c7573613cbb8dcac83ba5d5fc55ca607cf535dd11918d619aa6fd7ad&',
-      url: 'https://discord.gg/FUEHs7RCqz'
+      iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
     })
     .setDescription(queue.map((song, index) => `**${index + 1}.** ${song.searchQuery}`).join('\n'));
 
@@ -84,10 +82,9 @@ async function playNextSong(connection, message) {
    const embed = new EmbedBuilder()
  .setAuthor({
           name: 'Queue Empty',
-          iconURL: 'https://cdn.discordapp.com/attachments/1223544847047065662/1224631831178248347/4381-anouncements-animated.gif?ex=661e3245&is=660bbd45&hm=25f3b77985241a4612a8f4946a4631f8add618d9f36a0d9157fb4821aa6d2a0e&',
-          url: 'https://discord.gg/FUEHs7RCqz'
+          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
         })
-     .setDescription('**Oops! The queue is empty. Our bot is taking a break. See you later!**')
+     .setDescription('**The queue is empty**')
 
       .setColor('#ffcc00');
     message.reply({ embeds: [embed] });
@@ -130,8 +127,7 @@ async function playSong(connection, searchQuery, message) {
     const embed = new EmbedBuilder()
       .setAuthor({
         name: 'Currently playing a Track',
-        iconURL: 'https://cdn.discordapp.com/attachments/1140841446228897932/1144671132948103208/giphy.gif', 
-        url: 'https://discord.gg/FUEHs7RCqz'
+        iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&', 
       })
       .setDescription(`\n ‎ \n▶️ **Details :** [${video.title}](${youtubeLink})\n▶️ **Enjoy the Ultimate YouTube Music Experience ** \n▶️ **If link breaks playback try to give query**`)
       .setImage(video.thumbnails.high.url) 
@@ -196,10 +192,9 @@ async function playSong(connection, searchQuery, message) {
            .setColor('#2b71ec')
      .setAuthor({
           name: 'Skipped Song!',
-          iconURL: 'https://cdn.discordapp.com/attachments/1175488636033175602/1175488721253052426/right-chevron-.png?ex=656b6a2e&is=6558f52e&hm=50647a73aa51cb35f25eba52055c7b4a1b56bbf3a6d13adc15b52dc533236956&',
-          url: 'https://discord.gg/FUEHs7RCqz'
+          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
         })
-          .setDescription('**Let\'s move on to the next beat...**');
+          .setDescription('**Skipping the Song**');
             interaction.reply({ embeds: [embed] });
           } else {
             interaction.deferUpdate();
@@ -237,10 +232,9 @@ function pausePlayback() {
     const embed = new EmbedBuilder()
       .setAuthor({
           name: 'Playback Paused!',
-          iconURL: 'https://cdn.discordapp.com/attachments/1175488636033175602/1175488720519049337/pause.png?ex=656b6a2e&is=6558f52e&hm=6695d8141e37330b5426f146ec6705243f497f95f08916a40c1db582c6e07d7e&',
-          url: 'https://discord.gg/FUEHs7RCqz'
+          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
         })
-      .setDescription('**Halt the beats! Music taking a break..**')
+      .setDescription('**Pausing the Song**')
       .setColor('#2b71ec');
 
     currentMessage.reply({ embeds: [embed] });
@@ -248,8 +242,7 @@ function pausePlayback() {
     const embed = new EmbedBuilder()
  .setAuthor({
           name: 'Attention',
-          iconURL: 'https://cdn.discordapp.com/attachments/1223544847047065662/1224631171766292500/9596-wrong.gif?ex=661e31a7&is=660bbca7&hm=016645a3d582d6b93c8447a02cd7b1e7923b3162127336fdc0b23b96b5e8ab4b&',
-          url: 'https://discord.gg/FUEHs7RCqz'
+          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
         })
       .setDescription('**The bot is not currently playing any song.**')
       .setColor('#ff0000');
@@ -265,18 +258,16 @@ function resumePlayback() {
     const embed = new EmbedBuilder()
        .setAuthor({
           name: 'Playback Resumed!',
-          iconURL: 'https://cdn.discordapp.com/attachments/1175488636033175602/1175488720762310757/play.png?ex=656b6a2e&is=6558f52e&hm=ae4f01060fe8ae93f062d6574ef064ca0f6b4cf40b172f1bd54d8d405809c7df&',
-          url: 'https://discord.gg/FUEHs7RCqz'
+          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
         })
-      .setDescription('**Back in action! Let the beats roll..**')
+      .setDescription('**Resuming the Song**')
       .setColor('#2b71ec');
     currentMessage.reply({ embeds: [embed] });
   } else {
     const embed = new EmbedBuilder()
       .setAuthor({
           name: 'Attention',
-          iconURL: 'https://cdn.discordapp.com/attachments/1223544847047065662/1224631171766292500/9596-wrong.gif?ex=661e31a7&is=660bbca7&hm=6645a3d582d6b93c8447a02cd7b1e7923b316212017336fdc0b23b96b5e8ab4b&',
-          url: 'https://discord.gg/FUEHs7RCqz'
+          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
         })
       .setDescription('**The bot is not currently paused.**')
       .setColor('#ff0000');
@@ -315,8 +306,7 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setAuthor({
         name: 'Added To Queue',
-        iconURL: 'https://cdn.discordapp.com/attachments/1156866389819281418/1157218651179597884/1213-verified.gif?ex=6517cf5a&is=65167dda&hm=cf7bc8fb4414cb412587ade0af285b77569d2568214d6baab8702ddeb6c38ad5&', 
-        url: 'https://discord.gg/FUEHs7RCqz'
+        iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&', 
     })
         .setDescription(`**Your song has been queued up and is ready to play!**`)
         .setColor('#14bdff')
