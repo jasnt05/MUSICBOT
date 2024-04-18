@@ -33,46 +33,15 @@ app.listen(port, () => {
 
 client.commands = new Map();
 
-const funCommandsPath = path.join(__dirname, 'funCommands');
 const musicCommandsPath = path.join(__dirname, 'musicCommands');
-const animeCommandsPath = path.join(__dirname, 'AnimeCommands');
-const utilityCommandsPath = path.join(__dirname, 'utilityCommands');
-const imageCommandsPath = path.join(__dirname, 'imageCommands');
-const basicCommandsPath = path.join(__dirname, 'basicCommands');
 
-const animeCommandFiles = fs.readdirSync(animeCommandsPath).filter((file) => file.endsWith('.js'));
-const funCommandFiles = fs.readdirSync(funCommandsPath).filter((file) => file.endsWith('.js'));
+
 const musicCommandFiles = fs.readdirSync(musicCommandsPath).filter((file) => file.endsWith('.js'));
-const utilityCommandFiles = fs.readdirSync(utilityCommandsPath).filter((file) => file.endsWith('.js'));
-const imageCommandFiles = fs.readdirSync(imageCommandsPath).filter((file) => file.endsWith('.js'));
-const basicCommandFiles = fs.readdirSync(basicCommandsPath).filter((file) => file.endsWith('.js'));
 
-for (const file of funCommandFiles) {
-  const command = require(path.join(funCommandsPath, file));
-  client.commands.set(command.name, command);
-}
+
 
 for (const file of musicCommandFiles) {
   const command = require(path.join(musicCommandsPath, file));
-  client.commands.set(command.name, command);
-}
-
-for (const file of animeCommandFiles) {
-  const command = require(path.join(animeCommandsPath, file));
-  client.commands.set(command.name, command);
-}
-for (const file of utilityCommandFiles) {
-  const command = require(path.join(utilityCommandsPath, file));
-  client.commands.set(command.name, command);
-}
-
-for (const file of imageCommandFiles) {
-  const command = require(path.join(imageCommandsPath, file));
-  client.commands.set(command.name, command);
-}
-
-for (const file of basicCommandFiles) {
-  const command = require(path.join(basicCommandsPath, file));
   client.commands.set(command.name, command);
 }
 
