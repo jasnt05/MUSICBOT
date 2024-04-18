@@ -1,4 +1,3 @@
-
 const {
   joinVoiceChannel,
   createAudioPlayer,
@@ -53,6 +52,7 @@ async function displayQueue(message) {
       .setAuthor({
           name: 'Attention',
           iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+          url: 'https://discord.gg/FUEHs7RCqz'
         })
       .setDescription('**The Queue is currently empty consider adding songs.**')
       .setColor('#ff0000');
@@ -64,6 +64,7 @@ async function displayQueue(message) {
     .setAuthor({
       name: 'Queue',
       iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+      url: 'https://discord.gg/FUEHs7RCqz'
     })
     .setDescription(queue.map((song, index) => `**${index + 1}.** ${song.searchQuery}`).join('\n'));
 
@@ -83,8 +84,9 @@ async function playNextSong(connection, message) {
  .setAuthor({
           name: 'Queue Empty',
           iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+          url: 'https://discord.gg/FUEHs7RCqz'
         })
-     .setDescription('**The queue is empty**')
+     .setDescription('**Oops! The queue is empty. Our bot is taking a break. See you later!**')
 
       .setColor('#ffcc00');
     message.reply({ embeds: [embed] });
@@ -128,6 +130,7 @@ async function playSong(connection, searchQuery, message) {
       .setAuthor({
         name: 'Currently playing a Track',
         iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&', 
+        url: 'https://discord.gg/FUEHs7RCqz'
       })
       .setDescription(`\n ‎ \n▶️ **Details :** [${video.title}](${youtubeLink})\n▶️ **Enjoy the Ultimate YouTube Music Experience ** \n▶️ **If link breaks playback try to give query**`)
       .setImage(video.thumbnails.high.url) 
@@ -192,9 +195,10 @@ async function playSong(connection, searchQuery, message) {
            .setColor('#2b71ec')
      .setAuthor({
           name: 'Skipped Song!',
-          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+          iconURL: 'https://cdn.discordapp.com/attachments/1175488636033175602/1175488721253052426/right-chevron-.png?ex=656b6a2e&is=6558f52e&hm=50647a73aa51cb35f25eba52055c7b4a1b56bbf3a6d13adc15b52dc533236956&',
+          url: 'https://discord.gg/FUEHs7RCqz'
         })
-          .setDescription('**Skipping the Song**');
+          .setDescription('**Let\'s move on to the next beat...**');
             interaction.reply({ embeds: [embed] });
           } else {
             interaction.deferUpdate();
@@ -233,8 +237,9 @@ function pausePlayback() {
       .setAuthor({
           name: 'Playback Paused!',
           iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+          url: 'https://discord.gg/FUEHs7RCqz'
         })
-      .setDescription('**Pausing the Song**')
+      .setDescription('**Halt the beats! Music taking a break..**')
       .setColor('#2b71ec');
 
     currentMessage.reply({ embeds: [embed] });
@@ -243,6 +248,7 @@ function pausePlayback() {
  .setAuthor({
           name: 'Attention',
           iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+          url: 'https://discord.gg/FUEHs7RCqz'
         })
       .setDescription('**The bot is not currently playing any song.**')
       .setColor('#ff0000');
@@ -259,8 +265,9 @@ function resumePlayback() {
        .setAuthor({
           name: 'Playback Resumed!',
           iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+          url: 'https://discord.gg/FUEHs7RCqz'
         })
-      .setDescription('**Resuming the Song**')
+      .setDescription('**Back in action! Let the beats roll..**')
       .setColor('#2b71ec');
     currentMessage.reply({ embeds: [embed] });
   } else {
@@ -268,6 +275,7 @@ function resumePlayback() {
       .setAuthor({
           name: 'Attention',
           iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+          url: 'https://discord.gg/FUEHs7RCqz'
         })
       .setDescription('**The bot is not currently paused.**')
       .setColor('#ff0000');
@@ -283,12 +291,12 @@ module.exports = {
   execute: async (message, args) => {
     const voiceChannel = message.member.voice.channel;
     if (!voiceChannel) {
-      return message.reply('**⚠️ You need to be in a voice channel!**');
+      return message.reply('**You need to be in a voice channel!**');
     }
 
     const searchQuery = args.join(' ');
     if (!searchQuery) {
-      return message.reply('**▶️ Please provide a search query!**');
+      return message.reply('**Please put a song name**');
     }
 
     const connection = joinVoiceChannel({
@@ -307,6 +315,7 @@ module.exports = {
         .setAuthor({
         name: 'Added To Queue',
         iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&', 
+        url: 'https://discord.gg/FUEHs7RCqz'
     })
         .setDescription(`**Your song has been queued up and is ready to play!**`)
         .setColor('#14bdff')
