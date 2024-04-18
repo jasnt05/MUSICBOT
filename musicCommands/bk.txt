@@ -1,4 +1,3 @@
-
 const {
   joinVoiceChannel,
   createAudioPlayer,
@@ -57,9 +56,10 @@ async function playNextSong(connection, message) {
    const embed = new EmbedBuilder()
  .setAuthor({
           name: 'Queue Empty',
-          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230289750720643092/74F0769C-1CD5-4949-B638-CA508446F22D.jpg?ex=6632c79e&is=6620529e&hm=6baf63f0acbfc90ba0ffbb6722fb379615bb3c0c53f78df648f851fcd483fee6&',
+          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+          url: 'https://discord.gg/FUEHs7RCqz'
         })
-     .setDescription('**The queue is empty**')
+     .setDescription('**Oops! The queue is empty. Our bot is taking a break. See you later!**')
 
       .setColor('#ffcc00');
     message.reply({ embeds: [embed] });
@@ -76,11 +76,11 @@ async function playSong(connection, searchQuery, message) {
     searchResult = await YouTubeSearch(searchQuery, youtubeSearchOptions);
   } catch (error) {
     console.error(error);
-    return message.reply('There was an error searching for the song.');
+    return message.reply('There was an error searching for the song');
   }
 
   if (!searchResult || !searchResult.results.length) {
-    return message.reply('No search results found for the provided query.');
+    return message.reply('No search results');
   }
 
   const video = searchResult.results[0];
@@ -102,7 +102,8 @@ async function playSong(connection, searchQuery, message) {
     const embed = new EmbedBuilder()
       .setAuthor({
         name: 'Currently playing a Track',
-        iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230289750720643092/74F0769C-1CD5-4949-B638-CA508446F22D.jpg?ex=6632c79e&is=6620529e&hm=6baf63f0acbfc90ba0ffbb6722fb379615bb3c0c53f78df648f851fcd483fee6&', 
+        iconURL: 'https://cdn.discordapp.com/attachments/1140841446228897932/1144671132948103208/giphy.gif', 
+        url: 'https://discord.gg/FUEHs7RCqz'
       })
       .setDescription(`\n ‎ \n▶️ **Details :** [${video.title}](${youtubeLink})\n▶️ **Enjoy the Ultimate YouTube Music Experience ** \n▶️ **If link breaks playback try to give query**`)
       .setImage(video.thumbnails.high.url) 
@@ -158,9 +159,10 @@ async function playSong(connection, searchQuery, message) {
            .setColor('#2b71ec')
      .setAuthor({
           name: 'Skipped Song!',
-          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230289750720643092/74F0769C-1CD5-4949-B638-CA508446F22D.jpg?ex=6632c79e&is=6620529e&hm=6baf63f0acbfc90ba0ffbb6722fb379615bb3c0c53f78df648f851fcd483fee6&',
+          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+          url: 'https://discord.gg/FUEHs7RCqz'
         })
-          .setDescription('**Skipping the Song**');
+          .setDescription('**Let\'s move on to the next beat...**');
             interaction.reply({ embeds: [embed] });
           } else {
             interaction.deferUpdate();
@@ -194,9 +196,10 @@ function pausePlayback() {
     const embed = new EmbedBuilder()
       .setAuthor({
           name: 'Playback Paused!',
-          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230289750720643092/74F0769C-1CD5-4949-B638-CA508446F22D.jpg?ex=6632c79e&is=6620529e&hm=6baf63f0acbfc90ba0ffbb6722fb379615bb3c0c53f78df648f851fcd483fee6&',
+          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+          url: 'https://discord.gg/FUEHs7RCqz'
         })
-      .setDescription('**Music has been paused**')
+      .setDescription('**Halt the beats! Music taking a break..**')
       .setColor('#2b71ec');
 
     currentMessage.reply({ embeds: [embed] });
@@ -204,7 +207,7 @@ function pausePlayback() {
     const embed = new EmbedBuilder()
  .setAuthor({
           name: 'Attention',
-          iconURL: 'https://cdn.discordapp.com/attachments/1223544847047065662/1224631171766292500/9596-wrong.gif?ex=661e31a7&is=660bbca7&hm=016645a3d582d6b93c8447a02cd7b1e7923b3162127336fdc0b23b96b5e8ab4b&',
+          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
           url: 'https://discord.gg/FUEHs7RCqz'
         })
       .setDescription('**The bot is not currently playing any song.**')
@@ -222,8 +225,9 @@ function resumePlayback() {
        .setAuthor({
           name: 'Playback Resumed!',
           iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+          url: 'https://discord.gg/FUEHs7RCqz'
         })
-      .setDescription('**Music Resumed**')
+      .setDescription('**Back in action! Let the beats roll..**')
       .setColor('#2b71ec');
     currentMessage.reply({ embeds: [embed] });
   } else {
@@ -231,8 +235,9 @@ function resumePlayback() {
       .setAuthor({
           name: 'Attention',
           iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
+          url: 'https://discord.gg/FUEHs7RCqz'
         })
-      .setDescription('**The bot is not currently paused**')
+      .setDescription('**The bot is not currently paused.**')
       .setColor('#ff0000');
 
     currentMessage.reply({ embeds: [embed] });
@@ -270,6 +275,7 @@ module.exports = {
         .setAuthor({
         name: 'Added To Queue',
         iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&', 
+        url: 'https://discord.gg/FUEHs7RCqz'
     })
         .setDescription(`**Your song has been queued up and is ready to play!**`)
         .setColor('#14bdff')
