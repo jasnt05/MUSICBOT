@@ -11,7 +11,7 @@ module.exports = {
     if (!voiceChannel) {
       const embed = new EmbedBuilder()
         .setColor('#FF0000')
-        .setDescription('🐼 You need to be in a voice channel to use this command!');
+        .setDescription('You need to be in a voice channel to use this command!');
       return message.reply({ embeds: [embed] });
     }
 
@@ -30,8 +30,7 @@ module.exports = {
            .setColor('#2b71ec')
      .setAuthor({
           name: 'Skipped Song!',
-          iconURL: 'https://cdn.discordapp.com/attachments/1175488636033175602/1175488721253052426/right-chevron-.png?ex=656b6a2e&is=6558f52e&hm=7a73aa51cb35f25eba52055c7b4a1b56bbf3a6d150643adc15b52dc533236956&',
-          url: 'https://discord.gg/FUEHs7RCqz'
+          iconURL: 'https://cdn.discordapp.com/attachments/821165280612319262/1230291345382314065/ryan.png?ex=6632c91a&is=6620541a&hm=deb2ac5108359a5878c6172c5dbab79171aabe75d3fd5a998069219068eaae57&',
         })
           .setDescription('**Let\'s move on to the next beat...**');
         return message.reply({ embeds: [embed] });
