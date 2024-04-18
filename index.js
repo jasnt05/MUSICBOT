@@ -13,13 +13,7 @@ const client = new Client({
     return GatewayIntentBits[a];
   }),
 });
-const { printWatermark } = require('./functions/handlers');const distube = new DisTube(client, {
-  searchSongs: 0,
-  emitNewSongOnly: true,
-  leaveOnEmpty: true,
-  leaveOnFinish: true,
-  leaveOnStop: true,
-});
+
 const prefixData = require('./prefix.json');
 const prefix = prefixData.prefix;
 const config = require('./config.json');
